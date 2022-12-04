@@ -5,5 +5,5 @@ public class Data
     public string? column { get; set; }
     public string? query { get; set; }
     public IEnumerable<Line>? result { get; set; }
-
+    public int logCount { get; set; } = 0;
 }

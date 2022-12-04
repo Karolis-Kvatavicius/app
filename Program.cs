@@ -17,8 +17,9 @@ try
     data.column = column;
     data.query = query;
     data.result = record;
+    data.logCount = record.Count();
 
-    string jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { MaxDepth = 64 });
+    string jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { MaxDepth = 64, WriteIndented = true });
     Console.WriteLine(jsonString);
 }
 catch (System.NullReferenceException)
