@@ -13,11 +13,13 @@ var record = File.ReadLines("20220601182758.csv").Skip(1)
 
 if (record != null || record.Any())
 {
-    foreach (var item in record)
-    {
-        string jsonString = JsonSerializer.Serialize(item);
-        Console.WriteLine(jsonString);
-    }
+    var data = new Data();
+    data.column = column;
+    data.query = query;
+    data.result = record;
+
+    string jsonString = JsonSerializer.Serialize(data, new JsonSerializerOptions { MaxDepth = 64 });
+    Console.WriteLine(jsonString);
 }
 else
 {
